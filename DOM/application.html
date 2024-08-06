@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>School Application</h1>
+    <p>Enter Your name and gender to apply for school</p>
+    <h2 id="display">Display entered name and gender here</h2>
+    <hr>
+    <input type="text" id="name" placeholder="Enter your name">
+    <select id="gender">
+        <option value="Male">Male</option>
+        <option value="Female">Male</option>
+    </select>
+    <h4 id="container"></h4>
+    <button onclick="apply()">Apply</button>
+</body>
+
+</html>
+<script>
+    function apply(){
+        var name = document.getElementById("name").value;
+        var gender = document.getElementById("gender").value;
+        
+        document.getElementById('container').innerHTML = `name: ${name} , gender:${gender}`
+    }
+</script>

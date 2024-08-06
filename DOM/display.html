@@ -1,0 +1,23 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>display</title>
+</head>
+
+<body>
+    <button onclick="show()">Show Quote in console</button>
+    <p id="quote" style="display: none;">Talk is cheap Show me the code</p>
+
+    <script>
+        function show() {
+          let quote =   document.getElementById("quote")
+          quote.style.display = "block";
+            console.log(quote.textContent)
+        }
+
+    </script>
+</body>
+
+</html>
