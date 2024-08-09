@@ -1,0 +1,29 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>power calculator</title>
+    <link rel="stylesheet" href="./power.css">
+</head>
+<body>
+    <div id="container">
+        <input id="num1" type="text">
+        <input id="num2" type="text">
+        <button  onclick="powCalculator()">power</button>
+        <p id="output"></p>
+    </div>
+
+</body>
+<script>
+    function powCalculator(){
+     let num1 = parseFloat(document.getElementById('num1').value)
+     let num2 = parseInt( document.getElementById('num2').value)
+     let result = 1
+     for (let i= 0 ; i< num2; i++){
+         result = result * num1
+     }
+     document.getElementById('output').innerHTML = `${num1} ^ ${num2} = ${result}`;
+    }
+     
+ </script>
+</html>
