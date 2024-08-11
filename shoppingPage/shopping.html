@@ -1,0 +1,54 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="shopping.css">
+</head>
+
+<body>
+    <div id="card"></div>
+</body>
+
+<script>
+    var data = [
+        {
+            imgUrl: "https://preview.colorlib.com/theme/eiser/img/product/inspired-product/xi1.jpg.pagespeed.ic.mkSk-Af1ka.webp",
+            name: "LATEST MEN’S SNEAKER",
+            price: "$25.00",
+            strikedOffPrice: "$95.00"
+        }, {
+            imgUrl: "https://preview.colorlib.com/theme/eiser/img/product/inspired-product/xi2.jpg.pagespeed.ic.uBrpABaJqp.webp",
+            name: "LATEST MEN’S SNEAKER",
+            price: "$35.00",
+            strikedOffPrice: "$100.00"
+        }, {
+            imgUrl: "https://preview.colorlib.com/theme/eiser/img/product/inspired-product/xi3.jpg.pagespeed.ic.iO_cFEPy2K.webp",
+            name: "LATEST MEN’S SNEAKER",
+            price: "$35.00",
+            strikedOffPrice: "$100.00"
+        },
+        {
+            imgUrl: "https://preview.colorlib.com/theme/eiser/img/product/inspired-product/xi4.jpg.pagespeed.ic.kmiQW8I5wx.webp",
+            name: "LATEST MEN’S SNEAKER",
+            price: "$35.00",
+            strikedOffPrice: "$100.00"
+        }
+    ]
+
+    var cardContainer = document.getElementById("card"); // Correct ID reference
+data.map(item => {
+    var div = document.createElement("div");
+    div.innerHTML = `
+        <img src="${item.imgUrl}" alt="${item.name}"> <!-- Properly close img tag -->
+        <h3>${item.name}</h3>
+        <p class="price">${item.price}</p>
+        <p class="striked">${item.strikedOffPrice}</p>
+    `;
+    cardContainer.appendChild(div); // Append the new div to the card container
+});
+
+</script>
+
+</html>

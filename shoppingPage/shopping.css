@@ -1,0 +1,39 @@
+body {
+    font-family: Arial, sans-serif;
+  }
+  
+  #card {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  
+  #card div {
+    flex-basis: calc(25% - 10px);
+    background-color: #f2f2f2;
+    padding: 10px;
+    box-sizing: border-box;
+    text-align: center;
+  }
+  
+  #card div img {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  #card h3 {
+    margin: 10px 0;
+  }
+  
+  #card p {
+    margin: 0;
+  }
+  
+  .price {
+    color: green;
+  }
+  
+  .striked {
+    color: gray;
+    text-decoration: line-through;
+  }
