@@ -1,76 +1,74 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-	<title>Country Continent</title>
+    <title>Country Continent</title>
     <link rel="stylesheet" href="./continet.css">
 </head>
-<body>
-	<h2>Country Continent</h2>
-	<form>
-		<select id="country" name="country">
-			<option value="India">India</option>
-			<option value="United States of America">United States of America</option>
-			<option value="China">China</option>
-			<option value="Nepal">Nepal</option>
-			<option value="Australia">Australia</option>
-			<option value="France">France</option>
-			<option value="Germany">Germany</option>
-			<option value="South Africa">South Africa</option>
-			<option value="Nigeria">Nigeria</option>
-			<option value="Mexico">Mexico</option>
-			<option value="Argentina">Argentina</option>
-			<option value="Brazil">Brazil</option>
-			<option value="Canada">Canada</option>
-			<option value="Singapore">Singapore</option>
-			<option value="Sweden">Sweden</option>
-		</select>
-		<button id="submit" type="button" onclick="getContinent()">Get Continent</button>
-		<p id="result"></p>
 
-		<script>
-			function getContinent() {
-				var country = document.getElementById("country").value;
-				var continent;
-				switch(country) {
-					case "India":
-					case "Nepal":
-						continent = "Asia";
-						break;
-					case "United States of America":
-					case "Mexico":
-					case "Canada":
-						continent = "North America";
-						break;
-					case "China":
-						continent = "Asia";
-						break;
-					case "Australia":
-						continent = "Australia";
-						break;
-					case "France":
-					case "Germany":
-					case "Sweden":
-						continent = "Europe";
-						break;
-					case "South Africa":
-						continent = "Africa";
-						break;
-					case "Nigeria":
-						continent = "Africa";
-						break;
-					case "Argentina":
-					case "Brazil":
-						continent = "South America";
-						break;
-					case "Singapore":
-						continent = "Asia";
-						break;
-					default:
-						continent = "Unknown";
-				}
-				document.getElementById("result").innerHTML = "The continent of " + country + " is " + continent;
-			}
-		</script>
-	</form>
+<body>
+    <h2>Country Continent</h2>
+    <form>
+        <select id="country" name="country">
+            <option value="India">India</option>
+            <option value="United States of America">United States of America</option>
+            <option value="China">China</option>
+            <option value="Nepal">Nepal</option>
+            <option value="Australia">Australia</option>
+            <option value="France">France</option>
+            <option value="Germany">Germany</option>
+            <option value="South Africa">South Africa</option>
+            <option value="Nigeria">Nigeria</option>
+            <option value="Mexico">Mexico</option>
+            <option value="Argentina">Argentina</option>
+            <option value="Brazil">Brazil</option>
+            <option value="Canada">Canada</option>
+            <option value="Singapore">Singapore</option>
+            <option value="Sweden">Sweden</option>
+        </select>
+        <button id="submit" type="button" onclick="getContinent()">Get Continent</button>
+        <p id="result"></p>
+
+        <script>
+            function getContinent() {
+                var country = document.getElementById("country").value;
+                var continent;
+                switch (country) {
+
+                    case "Nepal":
+                    case "China":
+                    case "India":
+                    case "Singapore":
+                        continent = "Asia";
+                        break;
+                    case "United States of America":
+                    case "Mexico":
+                    case "Canada":
+                        continent = "North America";
+                        break;
+                    case "Australia":
+                        continent = "Australia";
+                        break;
+                    case "France":
+                    case "Germany":
+                    case "Sweden":
+                        continent = "Europe";
+                        break;
+                    case "South Africa":
+                    case "Nigeria":
+                        continent = "Africa";
+                        break;
+                    case "Argentina":
+                    case "Brazil":
+                        continent = "South America";
+                        break;
+                    default:
+                        continent = "Unknown";
+                }
+                document.getElementById("result").innerHTML = "The continent of " + country + " is " + continent;
+            }
+        </script>
+    </form>
 </body>
+
 </html>
