@@ -1,0 +1,63 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.login{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+#loginForm{
+ padding: 30px;
+ /* box-shadow: ; */
+ box-shadow: rgb(113, 144, 156) 0px 2px 8px 0px;
+ display: flex;
+ flex-direction: column;
+ 
+}
+input{
+    border: none;
+    border-bottom: 1px solid  rgb(32, 132, 172);
+    width: 200px;
+}
+input::placeholder{
+    color: rgb(57, 70, 75);
+    font-size: medium;
+    
+}
+input:focus{
+    outline: none;
+}
+
+input[type="submit"] {
+    /* Your styles here */
+    background-color:rgb(113, 144, 156)  ; /* Example: Green background */
+    color: white;              /* Example: White text */
+    padding: 10px 20px;        /* Example: Padding */
+    border: none;              /* Example: No border */
+    border-radius: 5px;        /* Example: Rounded corners */
+    cursor: pointer; 
+    margin-top: 20px; 
+    font-weight: 600;  
+    text-transform: uppercase;       /* Example: Pointer cursor */
+}
+
+input[type="submit"]:hover {
+    background-color: rgb(67, 126, 149) ; /* Example: Darker green on hover */
+}
+label{
+    margin: 10px 0;
+    font-size: large;
+}
+#registerDirect{
+    margin-top: 20px;
+    font-size: medium;
+}
+#registerDirect>a{
+    text-decoration: none;
+    color :rgb(255,149,107);
+    font-weight: 600;
+    font-size: large;
+}

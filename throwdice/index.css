@@ -1,0 +1,124 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f7f7f7;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.dice {
+    text-align: center;
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 04px8pxrgba(0, 0, 0, 0.1);
+    width: 300px;
+}
+
+.winner {
+    font-size: 1.5em;
+    color: #333;
+    margin-bottom: 20px;
+    animation: myAnim 2s ease 0s 1 normal forwards;
+}
+
+span {
+    display: inline-block;
+    width: 200px;
+    height: 50px;
+    line-height: 50px;
+    font-size: 2em;
+    font-weight: bold;
+    background-color: #7596a1;
+    color: white;
+    border-radius: 8px;
+    margin: 10px;
+}
+
+button#ro1ldice {
+    background-color: #4CAF50;
+    color: white;
+    font-size: 1em;
+    padding: 10px20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button#ro1ldice:hover {
+    background-color: #71a1bb;
+}
+
+.bg-green{
+    background-color: #4CAF50;
+}
+.bg-yellow{
+    background-color: #f7dc6f;
+}
+.bg-red{
+    background-color: #f44336;
+}
+
+.bg-blue{
+    background-color: #0915be;
+}
+
+button{
+    background-color: #e3a461;  
+    padding: 10px 15px;
+    width: 150px;
+    border: none;
+    border-radius: 7px;
+    font-weight: 600;
+    font-size: larger;
+    margin-top: 20px;
+}
+
+@keyframes myAnim {
+	0% {
+		animation-timing-function: ease-in;
+		opacity: 0;
+		transform: translateY(-250px);
+	}
+
+	38% {
+		animation-timing-function: ease-out;
+		opacity: 1;
+		transform: translateY(0);
+	}
+
+	55% {
+		animation-timing-function: ease-in;
+		transform: translateY(-65px);
+	}
+
+	72% {
+		animation-timing-function: ease-out;
+		transform: translateY(0);
+	}
+
+	81% {
+		animation-timing-function: ease-in;
+		transform: translateY(-28px);
+	}
+
+	90% {
+		animation-timing-function: ease-out;
+		transform: translateY(0);
+	}
+
+	95% {
+		animation-timing-function: ease-in;
+		transform: translateY(-8px);
+	}
+
+	100% {
+		animation-timing-function: ease-out;
+		transform: translateY(0);
+	}
+}
+
+

@@ -1,0 +1,250 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>cart items</title>
+    <link rel="stylesheet" href="index.css">
+
+    <style>
+        sub {
+            font-size: 16px;
+            color: aliceblue
+        }
+
+        #cart {
+            margin: 30px;
+        }
+
+        h5 {
+            font-size: 30px;
+            text-align: center;
+            margin-top: 100px;
+            color: rgb(208, 96, 52);
+        }
+
+        .cart-item {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            gap: 20px;
+            margin-top: 20px;
+            margin-left: 50px;
+        }
+
+        .cart-item>img {
+            height: 100px;
+            width: 150px;
+        }
+
+        .cartDelete {
+            background-color: red;
+            border-radius: 5px;
+        }
+
+        #checkout {
+            display: flex;
+            flex-direction: column;
+            justify-content: start;
+            align-items: start;
+            margin-left: 200px;
+            color: rgb(32, 132, 172);
+        }
+
+        h3 {
+            font-size: 30px;
+            margin-bottom: 20px;
+        }
+
+        h6 {
+            font-size: 20px;
+        }
+
+        span {
+            font-size: 20px;
+        }
+
+        .checkoutButton {
+            margin-top: 20px;
+            background-color: rgb(67, 126, 149);
+        }
+
+        .checkoutButton:hover {
+
+            background-color: rgb(32, 132, 172);
+        }
+
+        #footer {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: rgb(78, 126, 145);
+            margin-top: 180px;
+        }
+
+        #footer p {
+            text-decoration: none;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <div id="logo">
+            <a id="aimg" href="./index.html">
+                <img src="https://inkbotdesign.com/wp-content/uploads/2023/03/image-10-1024x589.png" alt="logo">
+        </div>
+        <div id="navlinks">
+
+            <li><a href="./men.html" id="mensLink" target="_blank">mens</a></li>
+            <li><a href="./women.html" id="womensLink" target="_blank">womens</a></li>
+            <li><a href="./cart.html" target="_blank" id="cartlength">Cart Items</a></li>
+            <li><a href="./login.html" id="login" target="_blank">login</a></li>
+            <li><a href="./register.html" target="_blank">signup</a></li>
+
+        </div>
+
+
+    </nav>
+    <div id="cart">
+
+    </div>
+
+    <div id="checkout">
+
+    </div>
+    <footer id="footer">
+        <div style="text-align: center; padding: 20px;">
+            <p>&copy; 2024 Your Company Name. All rights reserved.</p>
+            <p>
+                <a href="#">Privacy Policy</a> |
+                <a href="#">Terms of Service</a> |
+                <a href="#">Contact Us</a>
+            </p>
+            <p>Contact us: <a href="mailto:info@yourcompany.com">info@yourcompany.com</a></p>
+        </div>
+    </footer>
+</body>
+
+</html>
+
+<script>
+    // Get the cart div
+    var cart = document.getElementById("cart");
+    // Get the cart items from local storage
+    var cartItems = JSON.parse(localStorage.getItem("cart"));
+    // cart length or count of products
+    var cartLength = document.getElementById("cartlength");
+    // cart length or count of products
+    if (cartItems.length > 0) {
+        cartLength.innerHTML = `Cart items <sub>${cartItems.length}</sub>`;
+
+
+    }
+
+
+    if (cartItems === null || cartItems.length === 0) {
+        cartItems = [];
+        let p = document.createElement('h5')
+        p.textContent = 'your cart is empty '
+        cart.appendChild(p)
+
+    }
+    // Loop through the cart items and create a list item for each item
+    cartItems.forEach(function (item) {
+        var itemContainer = document.createElement('div');
+        itemContainer.classList.add('cart-item');
+        const img = document.createElement("img");
+        img.src = item.imgUrl;
+        img.alt = item.name;
+        itemContainer.appendChild(img);
+
+        let li = document.createElement('li');
+        li.textContent = item.name + " : " + item.price;
+        itemContainer.appendChild(li);
+
+        cart.appendChild(itemContainer)
+
+        let deleteCartItem = document.createElement('button')
+        deleteCartItem.classList.add('cartDelete')
+        deleteCartItem.textContent = 'delete'
+        itemContainer.appendChild(deleteCartItem)
+
+        deleteCartItem.addEventListener('click', function deleteItem() {
+            cartItems.splice(cartItems.indexOf(item), 1)
+            localStorage.setItem("cart", JSON.stringify(cartItems));
+            window.location.reload();
+        })
+
+
+
+
+    })
+
+    //    show item cart length and price
+
+    let h6 = document.createElement('h6')
+    h6.textContent = ` Items In Cart : ${cartItems.length}`;
+    let checkoutLength = document.getElementById('checkout')
+    checkoutLength.appendChild(h6)
+
+    //  showing total price
+    // Create the span for displaying the total price (outside the function)
+    let spanPrice = document.createElement('span');
+    checkoutLength.appendChild(spanPrice);
+
+    function updateTotalPrice() {
+        let totalPrice = 0;
+
+        cartItems.forEach(function (item) {
+            totalPrice += parseInt(item.price);
+        });
+
+        // Update the text content of the existing span
+        spanPrice.textContent = `Total price of items: $${totalPrice}`;
+    }
+
+    // Call the function initially to set the total price when the page loads
+    updateTotalPrice();
+
+
+
+
+    function createCheckoutButton() {
+        let checkoutButton = document.createElement('button');
+        checkoutButton.classList.add('checkoutButton');
+        checkoutButton.textContent = 'Checkout';
+
+        // Append the button to the checkout container
+        checkoutLength.appendChild(checkoutButton);
+
+        // Add an event listener to the button (optional)
+        checkoutButton.addEventListener('click', function () {
+            alert('Proceeding to checkout!');
+            // Add your checkout logic here
+            window.location.href = './buyNow.html';
+        });
+    }
+    createCheckoutButton()
+
+    let isAuthenticated = localStorage.getItem("isAuthenticated");
+
+let logout = document.getElementById('login')
+let buttonDisable = document.getElementsByTagName('button')
+
+if (isAuthenticated === "true") {
+    logout.textContent = "logout"
+    logout.href = '#'
+    logout.addEventListener('click', function logout(event) {
+        event.preventDefault();
+        localStorage.removeItem("isAuthenticated");
+        alert("Logged out successfully");
+        window.location.reload();
+        let login = document.getElementById('login')
+        login.textContent = 'login'
+        login.href = './login.html'
+    })}
+
+</script>

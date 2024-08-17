@@ -1,0 +1,216 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>common</title>
+</head>
+<body>
+    
+</body>
+</html>
+
+<script>
+  let  data=[
+    {
+        "id": 1,
+        "name": "Wireless Bluetooth Headphones",
+        "category": "Electronics",
+        "price": 59.99,
+        "strikedOffPrice": 89.99,
+        "imgUrl": "https://example.com/img/product1.jpg",
+        "rating": 4.5,
+        "inStock": true
+    },
+    {
+        "id": 2,
+        "name": "Smartphone with 128GB Storage",
+        "category": "Electronics",
+        "price": 499.99,
+        "strikedOffPrice": 599.99,
+        "imgUrl": "https://example.com/img/product2.jpg",
+        "rating": 4.7,
+        "inStock": true
+    },
+    {
+        "id": 3,
+        "name": "Running Shoes",
+        "category": "Footwear",
+        "price": 79.99,
+        "strikedOffPrice": 119.99,
+        "imgUrl": "https://example.com/img/product3.jpg",
+        "rating": 4.3,
+        "inStock": true
+    },
+    {
+        "id": 4,
+        "name": "Men's Casual Jacket",
+        "category": "Apparel",
+        "price": 49.99,
+        "strikedOffPrice": 89.99,
+        "imgUrl": "https://example.com/img/product4.jpg",
+        "rating": 4.1,
+        "inStock": false
+    },
+    {
+        "id": 5,
+        "name": "4K Ultra HD Smart TV",
+        "category": "Electronics",
+        "price": 699.99,
+        "strikedOffPrice": 999.99,
+        "imgUrl": "https://example.com/img/product5.jpg",
+        "rating": 4.8,
+        "inStock": true
+    },
+    {
+        "id": 6,
+        "name": "Leather Wallet",
+        "category": "Accessories",
+        "price": 19.99,
+        "strikedOffPrice": 29.99,
+        "imgUrl": "https://example.com/img/product6.jpg",
+        "rating": 4.2,
+        "inStock": true
+    },
+    {
+        "id": 7,
+        "name": "Digital Camera",
+        "category": "Electronics",
+        "price": 349.99,
+        "strikedOffPrice": 449.99,
+        "imgUrl": "https://example.com/img/product7.jpg",
+        "rating": 4.6,
+        "inStock": true
+    },
+    {
+        "id": 8,
+        "name": "Gaming Laptop",
+        "category": "Computers",
+        "price": 1199.99,
+        "strikedOffPrice": 1499.99,
+        "imgUrl": "https://example.com/img/product8.jpg",
+        "rating": 4.9,
+        "inStock": false
+    },
+    {
+        "id": 9,
+        "name": "Stainless Steel Water Bottle",
+        "category": "Home & Kitchen",
+        "price": 14.99,
+        "strikedOffPrice": 24.99,
+        "imgUrl": "https://example.com/img/product9.jpg",
+        "rating": 4.3,
+        "inStock": true
+    },
+    {
+        "id": 10,
+        "name": "Noise-Cancelling Earbuds",
+        "category": "Electronics",
+        "price": 129.99,
+        "strikedOffPrice": 179.99,
+        "imgUrl": "https://example.com/img/product10.jpg",
+        "rating": 4.7,
+        "inStock": true
+    },
+    {
+        "id": 11,
+        "name": "Men's Leather Belt",
+        "category": "Accessories",
+        "price": 24.99,
+        "strikedOffPrice": 39.99,
+        "imgUrl": "https://example.com/img/product11.jpg",
+        "rating": 4.1,
+        "inStock": true
+    },
+    {
+        "id": 12,
+        "name": "Electric Kettle",
+        "category": "Home & Kitchen",
+        "price": 29.99,
+        "strikedOffPrice": 49.99,
+        "imgUrl": "https://example.com/img/product12.jpg",
+        "rating": 4.4,
+        "inStock": true
+    },
+    {
+        "id": 13,
+        "name": "Men's Running Shorts",
+        "category": "Apparel",
+        "price": 19.99,
+        "strikedOffPrice": 34.99,
+        "imgUrl": "https://example.com/img/product13.jpg",
+        "rating": 4.3,
+        "inStock": true
+    },
+    {
+        "id": 14,
+        "name": "Bluetooth Speaker",
+        "category": "Electronics",
+        "price": 39.99,
+        "strikedOffPrice": 69.99,
+        "imgUrl": "https://example.com/img/product14.jpg",
+        "rating": 4.6,
+        "inStock": true
+    },
+    {
+        "id": 15,
+        "name": "Men's Aviator Sunglasses",
+        "category": "Accessories",
+        "price": 49.99,
+        "strikedOffPrice": 79.99,
+        "imgUrl": "https://example.com/img/product15.jpg",
+        "rating": 4.4,
+        "inStock": false
+    },
+    {
+        "id": 16,
+        "name": "Women's Handbag",
+        "category": "Accessories",
+        "price": 89.99,
+        "strikedOffPrice": 129.99,
+        "imgUrl": "https://example.com/img/product16.jpg",
+        "rating": 4.7,
+        "inStock": true
+    },
+    {
+        "id": 17,
+        "name": "Laptop Backpack",
+        "category": "Accessories",
+        "price": 59.99,
+        "strikedOffPrice": 89.99,
+        "imgUrl": "https://example.com/img/product17.jpg",
+        "rating": 4.5,
+        "inStock": true
+    },
+    {
+        "id": 18,
+        "name": "Wireless Mouse",
+        "category": "Computers",
+        "price": 19.99,
+        "strikedOffPrice": 29.99,
+        "imgUrl": "https://example.com/img/product18.jpg",
+        "rating": 4.2,
+        "inStock": true
+    },
+    {
+        "id": 19,
+        "name": "Portable Charger",
+        "category": "Electronics",
+        "price": 34.99,
+        "strikedOffPrice": 49.99,
+        "imgUrl": "https://example.com/img/product19.jpg",
+        "rating": 4.4,
+        "inStock": true
+    },
+    {
+        "id": 20,
+        "name": "Smartwatch with Fitness Tracker",
+        "category": "Electronics",
+        "price": 149.99,
+        "strikedOffPrice": 199.99,
+        "imgUrl": "https://example.com/img/product20.jpg",
+        "rating": 4.8,
+        "inStock": true
+    }
+]
+
+</script>

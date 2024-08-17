@@ -1,0 +1,361 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="index.css">
+    <style>
+        sub{
+           font-size: 16px;
+           color: aliceblue
+       }
+       #footer {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: rgb(78, 126, 145);
+            ;
+            ;
+        }
+
+        #footer p {
+            text-decoration: none;
+            margin-top: 10px;
+        }
+   </style>
+   
+</head>
+
+<body>
+    <nav>
+        <div id="logo">
+           <a id="aimg" href="./index.html">
+            <img src="https://inkbotdesign.com/wp-content/uploads/2023/03/image-10-1024x589.png" alt="logo">
+           </a>
+        </div>
+        <div id="navlinks">
+
+            <li><a href="./men.html" id="mensLink" target="_blank">mens</a></li>
+            <li><a href="./women.html" id="womensLink" target="_blank">womens</a></li>
+            <li><a href="./cart.html" target="_blank" id="cartlength">Cart Items</a></li>
+            <li><a href="./login.html" id="login" target="_blank">login</a></li>
+            <li><a href="./register.html" target="_blank">signup</a></li>
+           
+        </div>
+
+
+    </nav>
+    <div id="card">
+
+    </div>
+    <footer id="footer">
+        <div style="text-align: center; padding: 20px;">
+            <p>&copy; 2024 Your Company Name. All rights reserved.</p>
+            <p>
+                <a href="#">Privacy Policy</a> | 
+                <a href="#">Terms of Service</a> | 
+                <a href="#">Contact Us</a>
+            </p>
+            <p>Contact us: <a href="mailto:info@yourcompany.com">info@yourcompany.com</a></p>
+        </div>
+    </footer>
+</body>
+
+</html>
+<script>
+    let products = [
+        {
+            id: 1,
+            category: "men",
+            name: "Classic Men's T-Shirt",
+            description: "A comfortable cotton t-shirt for everyday wear.",
+            price: 20.99,
+            strikedOffPrice: 35.00,
+            imgUrl: "https://cdn.hanes.com/catalog/product/H/N/HNS_7216B4/HNS_7216B4_BlackGrey_Front.jpg?optimize=high&auto=webp&quality=90&fit=cover&width=700",
+            inStock: 15
+        },
+        {
+            id: 2,
+            category: "men",
+            name: "Men's Leather Wallet",
+            description: "A stylish and durable leather wallet with multiple compartments.",
+            price: 45.99,
+            strikedOffPrice: 70.00,
+            imgUrl: "https://therealleathercompany.com/cdn/shop/products/the-bifold-mens-top-grain-leather-wallet-open-full.jpg?v=1719313045&width=1445",
+            inStock: 8
+        },
+        {
+            id: 3,
+            category: "men",
+            name: "Men's Running Shoes",
+            description: "Lightweight running shoes with excellent grip and comfort.",
+            price: 65.99,
+            strikedOffPrice: 120.00,
+            imgUrl: "https://i.ebayimg.com/images/g/mdIAAOSwpQpia4u9/s-l1200.jpg",
+            inStock: 20
+        },
+        {
+            id: 4,
+            category: "men",
+            name: "Men's Denim Jacket",
+            description: "A classic denim jacket that never goes out of style.",
+            price: 79.99,
+            strikedOffPrice: 140.00,
+            imgUrl: "https://pimg.bucklecontent.com/images/products/86755NTWJKT142/IND/f/2395c6170672551513dfd60bd1760b87v3?quality=0.8&width=845",
+            inStock: 12
+        },
+        {
+            id: 5,
+            category: "men",
+            name: "Men's Chronograph Watch",
+            description: "A luxury chronograph watch with a leather strap.",
+            price: 120.00,
+            strikedOffPrice: 220.00,
+            imgUrl: "https://us.bremont.com/cdn/shop/products/Supermarine-Chronograph-diving-watch.jpg?v=1687362705",
+            inStock: 5
+        },
+        {
+            id: 6,
+            category: "men",
+            name: "Men's Sunglasses",
+            description: "Polarized sunglasses with UV protection.",
+            price: 35.00,
+            strikedOffPrice: 65.00,
+            imgUrl: "https://assets.ajio.com/medias/sys_master/root/h1f/hd8/15204089102366/-473Wx593H-460550818-black-MODEL5.jpg",
+            inStock: 25
+        },
+        {
+            id: 7,
+            category: "men",
+            name: "Men's Formal Shoes",
+            description: "Elegant leather shoes for formal occasions.",
+            price: 89.99,
+            strikedOffPrice: 150.00,
+            imgUrl: "https://m.media-amazon.com/images/I/71jTkXO+HML._AC_UF1000,1000_QL80_.jpg",
+            inStock: 10
+        },
+        {
+            id: 8,
+            category: "men",
+            name: "Men's Casual Shorts",
+            description: "Breathable cotton shorts perfect for summer.",
+            price: 29.99,
+            strikedOffPrice: 50.00,
+            imgUrl: "https://i.ebayimg.com/images/g/YHcAAOSwhhxkOao4/s-l1600.jpg",
+            inStock: 18
+        },
+        {
+            id: 9,
+            category: "men",
+            name: "Men's Hoodie",
+            description: "A cozy hoodie with a front pocket and adjustable hood.",
+            price: 49.99,
+            strikedOffPrice: 90.00,
+            imgUrl: "https://i.ebayimg.com/images/g/P6oAAOSwPyte1NYT/s-l1200.jpg",
+            inStock: 7
+        },
+        {
+            id: 10,
+            category: "men",
+            name: "Men's Cargo Pants",
+            description: "Durable cargo pants with multiple pockets.",
+            price: 59.99,
+            strikedOffPrice: 110.00,
+            imgUrl: "https://images.wrangler.com/is/image/Wrangler/112338140-HERO?$KDP-XLARGE$",
+            inStock: 14
+        },
+        {
+            id: 11,
+            category: "women",
+            name: "Women's Summer Dress",
+            description: "A light and airy dress perfect for summer outings.",
+            price: 39.99,
+            strikedOffPrice: 70.00,
+            imgUrl: "https://m.media-amazon.com/images/I/81j17qZnQrL._AC_UY1000_.jpg",
+            inStock: 9
+        },
+        {
+            id: 12,
+            category: "women",
+            name: "Women's Handbag",
+            description: "A stylish leather handbag with plenty of space.",
+            price: 85.99,
+            strikedOffPrice: 150.00,
+            imgUrl: "https://i5.walmartimages.com/seo/2023-Fashion-Women-Handbags-PU-Totes-Bag-Top-handle-Bag-Shoulder-Bag-Lady-Travel-Handbag-Black_17c58924-b664-4281-b3a0-d085c9c38259.36618958d35d326d87b88c5d2848b546.jpeg?odnHeight=768&odnWidth=768&odnBg=FFFFFF",
+            inStock: 11
+        },
+        {
+            id: 13,
+            category: "women",
+            name: "Women's Running Shoes",
+            description: "Comfortable running shoes with superior cushioning.",
+            price: 65.99,
+            strikedOffPrice: 120.00,
+            imgUrl: "https://www.scotsman.com/jpim-static/image/2022/05/27/15/nwld-composite-womens-trainers-mh.jpg?crop=3:2,smart&trim=&width=1200&auto=webp&quality=75",
+            inStock: 16
+        },
+        {
+            id: 14,
+            category: "women",
+            name: "Women's Denim Skirt",
+            description: "A trendy denim skirt for casual wear.",
+            price: 45.99,
+            strikedOffPrice: 85.00,
+            imgUrl: "https://ae01.alicdn.com/kf/S30b5d632e953486eb07dc711b4c5fcddD/Seoulish-2023-New-Patchwork-Women-s-Denim-Skirts-High-Wasit-Mermaid-Jeans-Skirts-Female-Chic-Loose.jpg",
+            inStock: 6
+        },
+        {
+            id: 15,
+            category: "women",
+            name: "Women's Earrings",
+            description: "Elegant earrings with a modern design.",
+            price: 25.99,
+            strikedOffPrice: 50.00,
+            imgUrl: "https://www.diamondcellar.com/cdn/shop/products/lab-grown-diamond-stud-earrings-630696_1500x.jpg?v=1665811776",
+            inStock: 23
+        },
+        {
+            id: 16,
+            category: "women",
+            name: "Women's Sunglasses",
+            description: "Stylish sunglasses with UV protection.",
+            price: 35.00,
+            strikedOffPrice: 65.00,
+            imgUrl: "https://m.media-amazon.com/images/I/61ckRNjayML._AC_UY1000_.jpg",
+            inStock: 19
+        },
+        {
+            id: 17,
+            category: "women",
+            name: "Women's High Heels",
+            description: "Elegant high heels for special occasions.",
+            price: 79.99,
+            strikedOffPrice: 140.00,
+            imgUrl: "https://www.samedelman.com/blob/product-images/99900/ec/02/20419/ec0220419_pair_medium.jpg",
+            inStock: 13
+        },
+        {
+            id: 18,
+            category: "women",
+            name: "Women's Blouse",
+            description: "A chic blouse perfect for work or casual outings.",
+            price: 49.99,
+            strikedOffPrice: 90.00,
+            imgUrl: "https://i.ebayimg.com/images/g/cAMAAOSwAWBkJnqM/s-l1200.webp",
+            inStock: 8
+        },
+        {
+            id: 19,
+            category: "women",
+            name: "Women's Yoga Pants",
+            description: "Comfortable yoga pants made from stretchy material.",
+            price: 39.99,
+            strikedOffPrice: 70.00,
+            imgUrl: "https://i.etsystatic.com/16149865/r/il/289217/2807677362/il_fullxfull.2807677362_oppx.jpg",
+            inStock: 17
+        },
+        {
+            id: 20,
+            category: "women",
+            name: "Women's Winter Coat",
+            description: "A warm and stylish coat for the winter season.",
+            price: 120.00,
+            strikedOffPrice: 220.00,
+            imgUrl: "https://www.cuirdimitri.ca/cdn/shop/collections/winter-women_0ffe31f8-00ac-4bd1-9f62-5681070b7f29.jpg?v=1679681863",
+            inStock: 4
+        }
+    ];
+
+    document.addEventListener("DOMContentLoaded", function () {
+
+        var cartItems = JSON.parse(localStorage.getItem("cart"));
+    // cart length or count of products
+    var cartLength = document.getElementById("cartlength");
+    // cart length or count of products
+    if (cartItems.length > 0) {
+    cartLength.innerHTML = `Cart items <sub>${cartItems.length}</sub>`;
+}
+
+        const path = window.location.pathname;
+        const page = path.split("/").pop();  // Get the last part of the path
+        const category = page.replace('.html', '');  // Remove the '.html' extension to get 'men' or 'women'
+
+        // Filter products based on the category
+        const filteredProducts = products.filter(product => product.category === category);
+
+
+        filteredProducts.forEach(function (element) {
+            let cardItem = document.createElement('div')
+            cardItem.classList.add('cards')
+
+            const img = document.createElement("img");
+            img.src = element.imgUrl;
+            img.alt = element.name;
+            cardItem.appendChild(img);
+
+            let name = document.createElement('h3')
+            name.textContent = element.name
+            cardItem.appendChild(name)
+
+            let price = document.createElement('h5')
+            price.textContent = `Price: $${element.price}`
+            cardItem.appendChild(price)
+
+            let strikedOffPrice = document.createElement('p')
+            strikedOffPrice.textContent = ` $${element.strikedOffPrice}`
+            cardItem.appendChild(strikedOffPrice)
+
+            let stock = document.createElement('span')
+            stock.textContent = `In Stock: ${element.inStock}`
+            cardItem.appendChild(stock)
+
+            let buttonWrapper = document.createElement('div')
+            buttonWrapper.classList.add('buttons')
+
+            let button1 = document.createElement('button')
+            button1.textContent = 'Add to Cart'
+            
+            button1.addEventListener('click', function addCart() {
+                let cart = JSON.parse(localStorage.getItem('cart')) || []
+                cart.push(element)
+                localStorage.setItem('cart', JSON.stringify(cart))
+                alert('Item added to cart')
+                window.location.reload()
+
+            })
+            buttonWrapper.appendChild(button1)
+
+            let button2 = document.createElement('button')
+            button2.textContent = 'Buy Now'
+            buttonWrapper.appendChild(button2)
+
+            cardItem.appendChild(buttonWrapper)
+            document.getElementById('card').appendChild(cardItem)
+        })
+
+        let isAuthenticated = localStorage.getItem("isAuthenticated");
+
+        let logout = document.getElementById('login')
+        let buttonDisable = document.getElementsByTagName('button')
+
+        if (isAuthenticated === "true") {
+            logout.textContent = "logout"
+            logout.href = '#'
+            logout.addEventListener('click', function logout(event) {
+                event.preventDefault();
+                localStorage.removeItem("isAuthenticated");
+                alert("Logged out successfully");
+                window.location.reload();
+                let login = document.getElementById('login')
+                login.textContent = 'login'
+                login.href = './login.html'
+            })
+
+
+        }
+       
+    })
+
+</script>

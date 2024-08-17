@@ -1,0 +1,128 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Throw Dice</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+    <div class="dice">
+
+        <h1>Throw Dice</h1>
+
+        <h3 id="winner">
+
+        </h3>
+
+        <span id="member-1">A </span>
+        <span id="member-2">B </span>
+        <span id="member-3">C </span>
+
+        <button id="rolldice">Roll the dice</button>
+    </div>
+</body>
+
+</html>
+
+<script>
+    let dice = document.getElementById("rolldice");
+    let A = document.getElementById("member-1");
+    let B = document.getElementById("member-2");
+    let C = document.getElementById("member-3");
+    let winner = document.querySelector("#winner");
+
+    dice.addEventListener('click', function () {
+       
+        let dice1 = Math.floor(Math.random() * 6) + 1;
+        let dice2 = Math.floor(Math.random() * 6) + 1;
+        let dice3 = Math.floor(Math.random() * 6) + 1;
+        let max = Math.max(dice1, dice2, dice3);
+        let min = Math.min(dice1, dice2, dice3);
+     
+
+        // Reset dice colors
+        A.classList.remove('bg-green', 'bg-red', 'bg-yellow', 'bg-blue');
+        B.classList.remove('bg-green', 'bg-red', 'bg-yellow', 'bg-blue');
+        C.classList.remove('bg-green', 'bg-red', 'bg-yellow', 'bg-blue');
+        // winner.classList.remove('winner');
+
+        // Set dice values
+        A.innerText = `A: ${dice1}`;
+        B.innerText = `B: ${dice2}`;
+        C.innerText = `C: ${dice3}`;
+
+        // Determine and apply colors based on dice values
+      
+
+        // Handle draws
+
+        if (dice1 === dice2 & dice1 === dice3 && dice2 === dice3) {
+            A.classList.add('bg-blue');
+            B.classList.add('bg-blue');
+            C.classList.add('bg-blue');
+            winner.innerText = `It's a draw, all players scored: ${dice1}`;
+        }else if (dice1 === dice2) {
+        // All three are the same, already handled abovereturn;
+
+        // Dice 1 and 2 are the same, but different from 3
+        A.classList.add('bg-blue');
+        B.classList.add('bg-blue');
+        winner.innerText = `It's a draw between Player A and Player B, score: ${dice1}`;
+    } else if (dice2 === dice3) {
+        // Dice 2 and 3 are the same, but different from 1
+        B.classList.add('bg-blue');
+        C.classList.add('bg-blue');
+      
+        winner.innerText = `It's a draw between Player B and Player C, score: ${dice2}`;
+    }
+     else if (dice3 === dice1) {
+        // Dice 2 and 3 are the same, but different from 1
+        A.classList.add('bg-blue');
+        C.classList.add('bg-blue');
+ 
+        winner.innerText = `It's a draw between Player A and Player C, score: ${dice3}`;
+    }
+
+  
+  
+
+        if (dice1 === max && dice2 !== max && dice3 !== max) {
+            winner.innerText = `Player A wins, score: ${dice1}`;
+            A.classList.add('bg-green');
+        } else if (dice1 === min && dice2 !== min && dice3 !== min) {
+            A.classList.add('bg-red');
+        } else if (dice1 !== max && dice1 !== min) {
+            A.classList.add('bg-yellow');
+        }
+
+        if (dice2 === max && dice1 !== max && dice3 !== max) {
+            winner.innerText = `Player B wins, score: ${dice2}`;
+            B.classList.add('bg-green');
+        } else if (dice2 === min && dice1 !== min && dice3 !== min) {
+            B.classList.add('bg-red');
+        } else if (dice2 !== max && dice2 !== min) {
+            B.classList.add('bg-yellow');
+        }
+
+        if (dice3 === max && dice1 !== max && dice2 !== max) {
+            winner.innerText = `Player C wins, score: ${dice3}`;
+            C.classList.add('bg-green');
+        } else if (dice3 === min && dice1 !== min && dice2 !== min) {
+            C.classList.add('bg-red');
+        } else if (dice3 !== max && dice3 !== min) {
+            C.classList.add('bg-yellow');
+        }
+          
+        winner.classList.add('winner');
+        setTimeout(()=>{
+            window.location.reload()
+        },2500)
+    });
+
+    winner.classList.remove('winner')
+   
+
+
+</script>

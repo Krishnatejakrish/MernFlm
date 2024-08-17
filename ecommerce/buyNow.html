@@ -1,0 +1,223 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./index.css">
+    <title>Buy Now</title>
+    <style>
+        sub {
+            color: aliceblue;
+        }
+
+        .checkout {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        h1 {
+            font-size: 50px;
+            margin-bottom: 20px;
+            color: rgb(255, 149, 107);
+        }
+
+        h2 {
+            font-size: 30px;
+            margin-bottom: 20px;
+            color: rgb(67, 126, 149);
+        }
+
+        #loginForm {
+            padding: 30px;
+            box-shadow: rgb(113, 144, 156) 0px 2px 8px 0px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        input {
+            border: none;
+            border-bottom: 1px solid rgb(32, 132, 172);
+            width: 200px;
+            margin-top: 6px;
+        }
+
+        input::placeholder {
+            color: rgb(57, 70, 75);
+            font-size: medium;
+        }
+
+        input:focus {
+            outline: none;
+        }
+
+        label {
+            font-size: large;
+            margin-top: 10px;
+        }
+
+        p {
+            font-size: 20px;
+            color: rgb(255, 149, 107);
+            margin: 20px 20px 20px 0;
+            text-decoration: none;
+        }
+
+        #coupon {
+            margin-top: 20px;
+        }
+
+        .payhere > button {
+            background-color: rgb(67, 126, 149);
+        }
+
+        .payhere > button:hover {
+            background-color: rgb(18, 85, 111);
+        }
+        #footer {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: rgb(78, 126, 145);
+            ;
+            ;
+        }
+
+        #footer p {
+            text-decoration: none;
+            margin-top: 10px;
+            color: black;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <div id="logo">
+            <a id="aimg" href="./index.html">
+                <img src="https://inkbotdesign.com/wp-content/uploads/2023/03/image-10-1024x589.png" alt="logo">
+            </a>
+        </div>
+        <div id="navlinks">
+            <li><a href="./men.html" id="mensLink" target="_blank">Mens</a></li>
+            <li><a href="./women.html" id="womensLink" target="_blank">Womens</a></li>
+            <li><a href="./cart.html" target="_blank" id="cartlength">Cart Items</a></li>
+            <li><a href="./login.html" id="login" target="_blank">Login</a></li>
+            <li><a href="./register.html" target="_blank">Signup</a></li>
+        </div>
+    </nav>
+
+    <div class="checkout">
+        <h1>Pay Here for Your Products</h1>
+        <h2>Enter Your Card Details</h2>
+
+        <form id="loginForm">
+            <label for="cardnumber">Card Number:</label>
+            <input type="text" id="cardnumber" name="cardnumber" required placeholder="Enter card number">
+
+            <label for="expiry">Expiry Month:</label>
+            <input type="text" id="expiryMonth" name="expiryMonth" required placeholder="08">
+            <label for="expiryYear">Expiry Year:</label>
+            <input type="text" id="expiryYear" name="expiryYear" required placeholder="2027">
+        </form>
+
+        <div id="coupon">
+            <label for="coupon">Enter Coupon Code:</label>
+            <input type="text" id="coupon" name="coupon">
+            <button id="applyCoupon">Apply Coupon</button>
+            <div id="couponMessage"></div>
+        </div>
+
+        <div class="payhere"></div>
+    </div>
+
+    <footer id="footer">
+        <div style="text-align: center; padding: 20px;">
+            <p>&copy; 2024 Your Company Name. All rights reserved.</p>
+            <p>
+                <a href="#">Privacy Policy</a> | 
+                <a href="#">Terms of Service</a> | 
+                <a href="#">Contact Us</a>
+            </p>
+            <p>Contact us: <a href="mailto:info@yourcompany.com">info@yourcompany.com</a></p>
+        </div>
+    </footer>
+</body>
+
+</html>
+
+<script>
+    var ItemsPrice = JSON.parse(localStorage.getItem("cart")) || [];
+    var cartLength = document.getElementById("cartlength");
+
+    if (ItemsPrice.length > 0) {
+        cartLength.innerHTML = `Cart items <sub>${ItemsPrice.length}</sub>`;
+    }
+
+    let totalAmount = document.createElement('div');
+    totalAmount.classList.add('price');
+
+    let spanPrice = document.createElement('p');
+    spanPrice.classList.add('itemstotalprice')
+    totalAmount.appendChild(spanPrice);
+
+    function updateTotalPrice() {
+        let totalPrice = 0;
+
+        ItemsPrice.forEach(function (item) {
+            totalPrice += parseInt(item.price);
+        });
+
+        // let discountedPrice = totalPrice - (totalPrice * discount);
+        spanPrice.textContent = `Total price of items: $${totalPrice}`;
+    }
+
+    updateTotalPrice();
+    document.querySelector('.payhere').appendChild(totalAmount);
+
+    document.getElementById('applyCoupon').addEventListener('click', function () {
+        const couponCode = document.getElementById('coupon').value;
+        const couponMessage = document.getElementById('couponMessage');
+        let totalamount = document.getElementsByName('sub')
+        
+
+        if (couponCode === 'COUPON10') {
+           
+            couponMessage.textContent = 'Coupon applied! 10% discount applied.';
+            let discountedPrice = parseInt(totalAmount) * (10 /100 );
+            spanPrice.textContent = `Total price of items: $${discountedPrice}`
+            window.location.reload()
+            
+        } else {
+            couponMessage.textContent = 'Invalid coupon code.';
+        }
+    });
+   
+
+    let payhere = document.createElement('button');
+    payhere.textContent = "Pay Now";
+    payhere.classList.add("payNow");
+    document.querySelector('.payhere').appendChild(payhere);
+
+    let isAuthenticated = localStorage.getItem("isAuthenticated");
+
+let logout = document.getElementById('login')
+let buttonDisable = document.getElementsByTagName('button')
+
+if (isAuthenticated === "true") {
+    logout.textContent = "logout"
+    logout.href = '#'
+    logout.addEventListener('click', function logout(event) {
+        event.preventDefault();
+        localStorage.removeItem("isAuthenticated");
+        alert("Logged out successfully");
+        window.location.reload();
+        let login = document.getElementById('login')
+        login.textContent = 'login'
+        login.href = './login.html'
+    })}
+</script>
