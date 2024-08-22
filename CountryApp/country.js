@@ -18,19 +18,12 @@ fetch(apiUrl)
   
       sortByAlphbet.addEventListener('change', (e) => {
         const sortBy = e.target.value;
-        countryInput.value = ''
-        let sortedCountries;
-        if (sortBy === 'a-z') {
-          sortedCountries = countries.sort((a, b) => a.name.common.localeCompare(b.name.common));
-          
-          
-        } else if (sortBy === 'z-a') {
-          sortedCountries = countries.sort((a, b) => b.name.common.localeCompare(a.name.common));
-        } 
-        
-        else {
-          sortedCountries = countries;
-        }
+        countryInput.value = '';
+        const sortedCountries = sortBy === 'a-z'
+          ? countries.sort((a, b) => a.name.common.localeCompare(b.name.common))
+          : sortBy === 'z-a'
+            ? countries.sort((a, b) => b.name.common.localeCompare(a.name.common))
+            : countries;
         displayCountries(sortedCountries);
       });
   
