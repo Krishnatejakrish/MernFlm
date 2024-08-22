@@ -1,0 +1,105 @@
+/* Global styles */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f9f9f9;
+  }
+  
+  /* Card styles */
+  
+  .card {
+    margin: 20px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .card-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .card h3 {
+    margin-top: 0;
+  }
+  
+  .card img {
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+    border-radius: 50%;
+  }
+  
+  .card p {
+    margin-bottom: 10px;
+  }
+  
+  /* Filter styles */
+  
+  .filterOptions {
+    margin-bottom: 20px;
+  }
+  
+  .filterbyInput {
+    margin-bottom: 10px;
+  }
+  
+  .filterbyInput label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  .filterbyInput input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 30%;
+  }
+  
+  .sort, .continent {
+    margin-bottom: 10px;
+  }
+  
+  .sort select, .continent select {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    /* width: 100%;
+     */
+     width: 30%;
+  }
+  
+  /* Card items container styles */
+  
+  #cardItems {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  #cardItems .card {
+    margin: 10px;
+    width: calc(25% - 20px);
+  }
+  
+  @media (max-width: 768px) {
+    #cardItems .card {
+      width: calc(50% - 20px);
+    }
+  }
+  
+  @media (max-width: 480px) {
+    #cardItems .card {
+      width: 100%;
+    }
+  }
